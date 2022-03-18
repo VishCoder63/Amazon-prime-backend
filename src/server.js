@@ -1,9 +1,8 @@
-const app = require('./index')
+const app = require("./index");
 
-const connect = require('../configs/db')
-
-app.listen(8000, () => {
+const connect = require("../configs/db");
+const port = process.env.PORT || 8000;
+app.listen(port, () => {
   connect();
-  console.log('Listening to port 8000')
-})
-
+  console.log(`Listening to port ${port}`);
+});
