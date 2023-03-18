@@ -22,8 +22,11 @@ body('email')
 .isEmail()
     .withMessage('Not  a valid Email!'),
     body('password')
-    .notEmpty()
-    .withMessage('Password cannot be empty!'), registerController)
+      .notEmpty()
+      .withMessage('Password cannot be empty!')
+    .isLength({ min: 6 })
+    .withMessage('Password should be atleast 6 characters long.')
+  , registerController)
 
 app.post('/login',
 body('email')
